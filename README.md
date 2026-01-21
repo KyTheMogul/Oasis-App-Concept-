@@ -1,126 +1,185 @@
-## Oasis Mobile App Concept
+# Oasis - Creator-Brand Deal Marketplace App
 
-Oasis is a **mobile banking and financial lifestyle app concept** built with React Native / Expo.  
-This repository is an **open source starter template and design reference** that showcases a full, ready-to-use app structure, modern UI patterns, and screen flows for a next‑generation digital banking experience.
+**Oasis** is a mobile app concept that connects **content creators with premium brand deals**. Built with React Native and Expo, this repository provides a **complete, production-ready template** for a creator marketplace platform where influencers can discover, apply for, and manage brand partnership opportunities.
 
-The goal of this project is to give other developers and designers:
-
-- A **polished, out‑of‑the‑box app shell** they can immediately run and extend.
-- A **cohesive design system** with typography, colors, and components that feel premium and modern.
-- A set of **realistic banking and social-finance screens** that can be wired up to any backend.
+This is an **open source app template and design concept** that you can immediately clone, customize, and deploy as your own creator-brand marketplace platform.
 
 ---
 
-## Tech Stack
+## 🎯 What is Oasis?
+
+Oasis is a **creator economy platform** that simplifies the process of connecting content creators with brands looking for influencer partnerships. The app enables:
+
+- **Creators** to discover brand deals matching their niche and audience
+- **Brands** to find creators aligned with their marketing goals
+- **Seamless deal management** with milestone tracking, progress monitoring, and direct messaging
+- **Earnings management** with transparent payment tracking and withdrawal capabilities
+
+The platform is designed to feel **premium, modern, and creator-focused**, with a sleek dark UI that puts deals and earnings front and center.
+
+---
+
+## 🚀 Tech Stack
 
 - **Framework**: React Native with Expo
-- **Navigation**: React Navigation
-- **Styling**: Themed styles (light/dark-ready) via shared `theme` utilities
-- **State & UI**: Functional components with hooks and reusable UI primitives
+- **Navigation**: React Navigation (Stack & Tab Navigators)
+- **Styling**: Custom theme system with TypeScript
+- **UI Components**: Reusable, production-ready components
+- **State Management**: React Hooks
 
-Everything is configured so you can clone the repo, install dependencies, and run the app on iOS, Android, or web with minimal setup.
-
----
-
-## Design Style & Experience
-
-Oasis is designed to feel like a **premium, minimal, and aspirational banking experience**:
-
-- **Clean, card-based layouts** for balances, deals, and account information.
-- **Soft gradients and subtle grain overlays** to create depth without clutter.
-- **Highly legible typography** with clear hierarchy for balances, labels, and actions.
-- **Rounded corners and generous spacing** to keep the interface approachable and modern.
-- **High‑contrast CTA buttons** with clear affordances for swipes, taps, and primary flows.
-
-The visual language is intentionally opinionated but easy to customize so teams can quickly reskin it for their own brand.
+Everything is configured so you can **clone, install, and run** the app on iOS, Android, or web with minimal setup.
 
 ---
 
-## Included Screens & Flows
+## 🎨 Design Style & Experience
 
-This template ships with a full set of screens that cover the core of a modern banking / financial app.
+Oasis features a **premium, dark-themed design** optimized for creators:
 
-### Onboarding & Auth
+- **Dark-first UI** with pure black backgrounds and subtle transparency effects
+- **Card-based layouts** for deals, profiles, and content discovery
+- **Soft gradients and grain overlays** for depth and texture
+- **Clean typography** with clear hierarchy for earnings, stats, and CTAs
+- **Rounded corners and generous spacing** for a modern, approachable feel
+- **High-contrast action buttons** with swipe-to-confirm interactions
+- **Glassmorphism effects** for profile stats and overlays
+
+The visual language is intentionally **opinionated but easily customizable**—update colors, typography, and assets in `theme.ts` to match your brand.
+
+---
+
+## 📱 Included Screens & Features
+
+This template includes a **complete set of screens** covering the full creator-brand deal marketplace experience:
+
+### Onboarding & Authentication
 
 - **Get Started Screen** (`GetStartedScreen`):  
-  Hero introduction to the Oasis experience with a clear “get started” call to action.
-- **Onboarding Screen** (`OnboardingScreen`):  
-  Step‑based onboarding flow that walks users through key value props (e.g., secure savings, rewards, instant transfers).
-- **Auth Screen** (`AuthScreen`):  
-  Simple, focused authentication entry point for sign in / sign up, designed to be wired to your own auth backend.
+  Hero introduction with tagline: *"Monetize your influence. Connect with premium brands."*
 
-### Main App Hub & Navigation
+- **Onboarding Flow** (`OnboardingScreen`):  
+  Multi-step onboarding that collects:
+  - Age verification
+  - Content type preferences (Lifestyle, Comedy, Education, Tech, Fitness, Beauty, Gaming, Music, Travel, Food, Fashion, Art, Movies/TV, Automotive, Pets)
+  - Brand category preferences (Fashion, Sneakers, Sports, Technology, Gaming, Skincare, Beverages, Apps/Software, Finance, Health & Wellness, Crypto & Web3, Travel, and more)
+  - Social media account connections
+
+- **Auth Screen** (`AuthScreen`):  
+  Clean authentication entry point for sign in / sign up (ready to wire to your backend)
+
+### Main App Experience
 
 - **Hub Screen** (`HubScreen`):  
-  The primary home dashboard for the user’s financial life – balances, quick actions, and shortcuts into other parts of the app.
+  Creator dashboard featuring:
+  - Available earnings balance with quick withdraw action
+  - Creator profile summary (name, handle, followers, total earnings)
+  - Performance stats (new followers, average views, engagement status)
+  - Active deals grid with progress tracking
+
 - **Discover Screen** (`DiscoverScreen`):  
-  Explore new deals, offers, and financial opportunities presented in a card-based, swipe‑friendly layout.
+  Browse available brand deals with:
+  - Search functionality
+  - Category filters (All, Fashion, Tech, Gaming, Travel, Eco, etc.)
+  - Deal cards showing brand, category, and payout amount
+  - Tap to view full deal details
+
+- **Deal Detail Screen** (`DealDetailScreen`):  
+  Comprehensive deal view including:
+  - Brand banner and logo
+  - Company bio and category
+  - Total earnings amount
+  - Progress bar showing completion percentage
+  - Milestone roadmap with payment breakdowns
+  - Apply for deal / View details actions
+  - Direct messaging with brand
+
 - **Profile Screen** (`ProfileScreen`):  
-  User profile overview with personal information, account settings entry points, and related actions.
+  Creator profile showcase with:
+  - Gradient header with profile picture
+  - Stats overview (followers, average views, deals completed)
+  - Social media links (YouTube, Instagram, TikTok, Twitter, Twitch, Kick, etc.)
+  - QR code for profile sharing
+  - Settings and notifications access
 
-### Deals & Rewards Experience
+### Communication & Messaging
 
-- **Deal Card Component** (`DealCard`):  
-  Reusable card representation for individual deals, offers, or promotions.
-- **Deal Detail Modal / Screen** (`DealDetailModal`, `DealDetailScreen`):  
-  Rich detail view for a specific deal, including copy, imagery, and CTAs.
-
-These components and screens are structured so you can quickly plug in your own data and APIs.
-
-### Messaging & Social
+- **Messages Screen** (`MessagesScreen`):  
+  List view of all conversations with brands, showing:
+  - Brand name and icon
+  - Last message preview
+  - Unread message counts
+  - Timestamps
 
 - **Chat Screen** (`ChatScreen`):  
-  A conceptual chat interface to enable direct communication (for example with support, advisors, or automated assistants).
-- **Messages Screen** (`MessagesScreen`):  
-  List view of conversations / threads with previews and timestamps.
-- **Social Connect Button** (`SocialConnectButton`):  
-  Reusable CTA for linking social or communication channels.
+  Direct messaging interface for communicating with brands about deals, including:
+  - Message history
+  - Real-time chat UI (ready for WebSocket integration)
+  - Deal context display
 
-### Statements & Compliance
-
-- **Statements Screen** (`StatementsScreen`):  
-  View historical statements and transaction summaries. Designed to be wired to your own statement data.
-- **Terms Screen** (`TermsScreen`):  
-  Legal terms and conditions screen.
-- **Privacy Screen** (`PrivacyScreen`):  
-  Privacy policy screen for compliance and user trust.
-
-### Payments & Cash Flow
+### Financial Management
 
 - **Withdraw Screen** (`WithdrawScreen`):  
-  Form and flow for withdrawing funds from the user’s account.
-- **Withdraw Success Screen** (`WithdrawSuccessScreen`):  
-  Confirmation screen with success state feedback and potential follow-up actions.
-- **QRCode Screen** (`QRCodeScreen`):  
-  Screen designed for QR-based interactions (e.g., pay / get paid, share account or referral).
+  Form for withdrawing earnings with multiple payment methods:
+  - Bank transfer
+  - PayPal
+  - Instant payout options
 
-### Settings & Preferences
+- **Withdraw Success Screen** (`WithdrawSuccessScreen`):  
+  Confirmation screen after successful withdrawal
+
+- **Statements Screen** (`StatementsScreen`):  
+  Historical view of earnings, payments, and transactions
+
+### Additional Screens
 
 - **Settings Screen** (`SettingsScreen`):  
-  Central place for user preferences, app configuration, and account options.
+  App preferences, account settings, and configuration options
+
+- **QR Code Screen** (`QRCodeScreen`):  
+  Generate and share creator profile QR codes
+
+- **Terms & Privacy Screens** (`TermsScreen`, `PrivacyScreen`):  
+  Legal compliance screens for terms of service and privacy policy
 
 ---
 
-## Reusable Components & Utilities
+## 🧩 Reusable Components & Utilities
 
-The project includes several reusable, production-ready components:
+The project includes several **production-ready, reusable components**:
+
+- **Deal Card** (`DealCard`):  
+  Reusable card component for displaying brand deals in grids and lists
+
+- **Deal Detail Modal** (`DealDetailModal`):  
+  Modal overlay for quick deal previews
 
 - **Grain Overlay** (`GrainOverlay`):  
-  Visual treatment that adds a soft textured layer over gradients and backgrounds.
-- **Swipe Button** (`SwipeButton`):  
-  Interactive swipe‑to‑confirm button for high‑intent actions (e.g., confirm withdrawals, accept deals).
-- **Social Connect Button** (`SocialConnectButton`):  
-  Branded button component for connecting to external networks or sharing.
-- **Theme System** (`theme.ts`):  
-  Centralized tokens for colors, spacing, typography, and other visual primitives.
-- **Shared Types** (`types.ts`):  
-  Type definitions for deals, navigation, and core entities.
+  Animated texture overlay component for adding depth to backgrounds
 
-These building blocks are designed so you can rapidly prototype new features while keeping UI consistent.
+- **Swipe Button** (`SwipeButton`):  
+  Interactive swipe-to-confirm button for high-intent actions (e.g., apply for deal, confirm withdrawal)
+
+- **Social Connect Button** (`SocialConnectButton`):  
+  Branded button component for connecting social media accounts
+
+- **Theme System** (`theme.ts`):  
+  Centralized design tokens for colors, spacing, typography, shadows, and border radius
+
+- **Type Definitions** (`types.ts`):  
+  Complete TypeScript interfaces for deals, users, milestones, messages, and navigation
+
+These building blocks enable rapid feature development while maintaining UI consistency.
 
 ---
 
-## Getting Started
+## 🏃 Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+- Expo CLI (or use `npx expo`)
+
+### Installation
 
 1. **Clone the repository**
 
@@ -139,60 +198,88 @@ These building blocks are designed so you can rapidly prototype new features whi
 
 3. **Run the app**
 
-   Using Expo:
-
    ```bash
    npx expo start
    ```
 
-   Then follow the Expo prompts to open on iOS simulator, Android emulator, or a physical device.
+   Then follow the Expo prompts to:
+   - Press `i` for iOS simulator
+   - Press `a` for Android emulator
+   - Scan QR code with Expo Go app on your physical device
+
+The app will launch and you can immediately explore all screens and features!
 
 ---
 
-## Customizing the Template
+## 🎨 Customizing the Template
 
-This project is intentionally structured to be **easy to fork and rebrand**:
+This project is structured to be **easy to fork and rebrand**:
 
-- Update **colors and typography** in `theme.ts`.
-- Swap out **logos and icons** in the `assets` folder.
-- Adjust **copy and screens** in the `screens` directory to fit your specific financial product or experience.
-- Extend **navigation** and add new routes for additional features.
+### Quick Customization
 
-Because the core UI and navigation is already wired, you can focus on:
+- **Update branding**: Modify colors, fonts, and spacing in `theme.ts`
+- **Replace assets**: Swap logos, icons, and images in the `assets` folder
+- **Modify copy**: Update text and messaging throughout the `screens` directory
+- **Add features**: Extend navigation and add new screens for additional functionality
 
-- Integrating **real data and APIs**.
-- Building **business logic and security layers**.
-- Refining **brand-specific visuals**.
+### Integration Points
+
+The core UI and navigation are already wired, so you can focus on:
+
+- **Backend integration**: Connect to your API for deals, users, messaging, and payments
+- **Authentication**: Wire up `AuthScreen` to your auth provider (Firebase, Auth0, custom)
+- **Real-time features**: Add WebSocket support for live messaging and deal updates
+- **Payment processing**: Integrate Stripe, PayPal, or other payment gateways
+- **Analytics**: Add tracking for deal views, applications, and conversions
 
 ---
 
-## Use Cases
+## 💡 Use Cases
 
 You can use Oasis as:
 
-- A **starter kit** for a new digital bank, fintech, or savings app.
-- A **design reference** for teams exploring premium mobile finance UX.
-- A **demo / prototype** for pitch decks, stakeholder demos, or user testing.
-- A **learning project** to explore React Native, Expo, and modern mobile UI patterns.
+- **A starter kit** for building your own creator marketplace or influencer platform
+- **A design reference** for teams exploring premium creator economy UX patterns
+- **A demo / prototype** for pitch decks, stakeholder presentations, or user testing
+- **A learning project** to explore React Native, Expo, modern mobile UI patterns, and TypeScript
 
 ---
 
-## License & Open Source
+## 📄 License & Open Source
 
 This repository is intended as an **open source app template and concept** for the community.  
 You are free to:
 
-- Fork it and build your own product on top.
-- Rebrand the UI to match your company or project.
-- Learn from the structure and components to accelerate your own work.
+- ✅ Fork it and build your own creator marketplace on top
+- ✅ Rebrand the UI to match your company or project
+- ✅ Learn from the structure and components to accelerate your own work
+- ✅ Use it commercially or non-commercially
 
 If you use Oasis as the foundation for your app, a mention or link back to this repo is appreciated but not required.
 
 ---
 
-## Credits
+## 🤝 Contributing
 
-Created and maintained by **KyTheMogul** as part of an ongoing exploration into premium, human‑centered financial app experiences.  
-Feedback, suggestions, and contributions are welcome via GitHub issues and pull requests.
+Feedback, suggestions, and contributions are welcome! Feel free to:
 
+- Open issues for bugs or feature requests
+- Submit pull requests for improvements
+- Share your customizations and use cases
 
+---
+
+## 👤 Credits
+
+Created and maintained by **KyTheMogul** as an open source contribution to the creator economy ecosystem.
+
+---
+
+## 🔗 Links
+
+- **Repository**: [https://github.com/KyTheMogul/Oasis-App-Concept-](https://github.com/KyTheMogul/Oasis-App-Concept-)
+- **Issues**: Report bugs or request features via GitHub Issues
+
+---
+
+**Ready to build the next creator marketplace? Clone, customize, and launch! 🚀**

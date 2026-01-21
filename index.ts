@@ -1,3 +1,9 @@
+/**
+ * Entry point for the Expo application
+ * 
+ * This file registers the root component with Expo's AppRegistry.
+ * It ensures proper initialization whether running in Expo Go or a native build.
+ */
 import { registerRootComponent } from 'expo';
 
 import App from './App';

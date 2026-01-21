@@ -1,4 +1,21 @@
-import React, { useState, useRef, useEffect } from 'react';
+/**
+ * ChatScreen - Direct messaging interface with brands
+ * 
+ * Features:
+ * - Inverted FlatList for chat-like message display (newest at bottom)
+ * - Brand avatar display for received messages
+ * - User messages aligned right, brand messages aligned left
+ * - Keyboard-aware input area with send button
+ * - Timestamps on each message
+ * 
+ * TODO: Production enhancements:
+ * - WebSocket integration for real-time messaging
+ * - Message status indicators (sent, delivered, read)
+ * - Image/file attachment support
+ * - Typing indicators
+ * - Message pagination for long conversations
+ */
+import React, { useState, useRef } from 'react';
 import {
     View,
     Text,
@@ -9,7 +26,6 @@ import {
     KeyboardAvoidingView,
     Platform,
     Image,
-    Keyboard,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';

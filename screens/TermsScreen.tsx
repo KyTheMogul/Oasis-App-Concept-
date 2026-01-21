@@ -1,3 +1,12 @@
+/**
+ * TermsScreen - Terms of Service legal document
+ * 
+ * Displays the platform's terms of service in a scrollable format.
+ * Used during sign-up flow and accessible from settings.
+ * 
+ * Note: Replace placeholder content with actual legal terms
+ * reviewed by your legal team before production deployment.
+ */
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';

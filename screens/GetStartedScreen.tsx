@@ -1,3 +1,10 @@
+/**
+ * Initial marketing / hero screen shown on first launch.
+ *
+ * This screen introduces the Oasis brand and core value prop
+ * (“Monetize your influence. Connect with premium brands.”) and
+ * funnels the user into the auth flow via a swipe interaction.
+ */
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -15,9 +22,12 @@ type GetStartedScreenNavigationProp = NativeStackNavigationProp<RootStackParamLi
 export default function GetStartedScreen() {
     const navigation = useNavigation<GetStartedScreenNavigationProp>();
 
+    /**
+     * Handle completion of the swipe CTA.
+     * A short delay allows the swipe animation to feel finished
+     * before transitioning into the auth stack.
+     */
     const handleGetStarted = () => {
-        // Navigate to Auth screen
-        // Small delay to let the animation complete
         setTimeout(() => {
             navigation.navigate('Auth');
         }, 300);
@@ -25,8 +35,7 @@ export default function GetStartedScreen() {
 
     return (
         <View style={styles.container}>
-            {/* Background Image - Using a placeholder premium abstract dark image */}
-            {/* Integrating the purple/black theme */}
+            {/* Background hero art matching the dark purple/black theme */}
             <ImageBackground
                 source={{ uri: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2670&auto=format&fit=crop' }}
                 style={styles.backgroundImage}

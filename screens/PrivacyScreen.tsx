@@ -1,3 +1,13 @@
+/**
+ * PrivacyScreen - Privacy Policy legal document
+ * 
+ * Displays the platform's privacy policy in a scrollable format.
+ * Required for compliance and user trust.
+ * 
+ * Note: Replace placeholder content with actual privacy policy
+ * reviewed by your legal team and compliant with GDPR/CCPA
+ * before production deployment.
+ */
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';

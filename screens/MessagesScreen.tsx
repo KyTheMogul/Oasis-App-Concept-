@@ -1,3 +1,18 @@
+/**
+ * MessagesScreen - List of conversation threads with brands
+ * 
+ * Features:
+ * - Searchable list of all brand conversations
+ * - Unread message badges
+ * - Last message preview with timestamps
+ * - Empty state for new users
+ * - Tap to open individual chat thread
+ * 
+ * TODO: Integrate with real-time messaging backend
+ * - WebSocket connection for live updates
+ * - Push notifications for new messages
+ * - Mark threads as read when opened
+ */
 import React from 'react';
 import {
     View,

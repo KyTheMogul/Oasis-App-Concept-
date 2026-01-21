@@ -1,3 +1,14 @@
+/**
+ * Creator hub / dashboard screen.
+ *
+ * Surfaces the most important, at‑a‑glance information for a creator:
+ * - Available earnings and quick withdraw CTA
+ * - Profile + audience stats (followers, views, engagement)
+ * - Grid of active brand deals with progress indicators
+ *
+ * In a production deployment, `mockUser` and `mockActiveDeals` would be
+ * replaced with data from your backend or state management layer.
+ */
 import React, { useState } from 'react';
 import {
     View,
@@ -14,7 +25,7 @@ import { Deal } from '../types';
 import DealCard from '../components/DealCard';
 
 
-// Mock data
+// Mock data representing the currently signed‑in creator
 const mockUser = {
     name: 'Alex Johnson',
     handler: '@alexj',
@@ -27,6 +38,10 @@ const mockUser = {
     balance: 3450.50,
 };
 
+/**
+ * Format large numbers into a compact, UI‑friendly representation
+ * (e.g. 1.2k, 3.4M).
+ */
 function formatCompactNumber(number: number): string {
     if (number >= 1000000) {
         return (number / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
@@ -37,6 +52,7 @@ function formatCompactNumber(number: number): string {
     return number.toString();
 }
 
+// Mock list of active deals currently in progress for the creator
 const mockActiveDeals: Deal[] = [
     {
         id: '1',
@@ -118,13 +134,20 @@ import { RootStackParamList } from '../types';
 
 export default function HubScreen() {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+    // Reserved state for future modal/details UX if needed
     const [selectedDeal, setSelectedDeal] = useState<Deal | null>(null);
     const [modalVisible, setModalVisible] = useState(false);
 
+    /**
+     * Navigate to the full deal detail screen when a card is tapped.
+     */
     const handleDealPress = (deal: Deal) => {
         navigation.navigate('DealDetail', { deal });
     };
 
+    /**
+     * Map engagement status to a semantic color token.
+     */
     const getEngagementColor = () => {
         switch (mockUser.engagementStatus) {
             case 'high':

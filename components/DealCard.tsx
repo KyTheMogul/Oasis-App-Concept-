@@ -1,3 +1,15 @@
+/**
+ * DealCard - Reusable card component for displaying brand deals
+ * 
+ * Features:
+ * - Business icon/logo display with fallback placeholder
+ * - Deal category and total earnings amount
+ * - Status-aware UI (available vs active deals)
+ * - Progress bar for active deals
+ * - "Apply" button for available deals
+ * 
+ * Used in: HubScreen (active deals), DiscoverScreen (available deals)
+ */
 import React from 'react';
 import { Pressable, Text, StyleSheet, View, Image } from 'react-native';
 import { theme } from '../theme';

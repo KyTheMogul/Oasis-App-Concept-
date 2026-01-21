@@ -1,3 +1,17 @@
+/**
+ * AuthScreen - Authentication entry point for creators
+ * 
+ * Handles both sign-up and login flows with a toggle between modes.
+ * Features:
+ * - Email/password authentication form
+ * - Password confirmation for sign-up
+ * - Legal links (Terms & Privacy) for new users
+ * - Forgot password option for existing users
+ * - Keyboard-aware scrolling for better mobile UX
+ * 
+ * Note: Currently uses mock validation for demo purposes.
+ * In production, wire this to your authentication backend.
+ */
 import React, { useState } from 'react';
 import {
     View,
@@ -8,8 +22,7 @@ import {
     Platform,
     ScrollView,
     TouchableOpacity,
-    Dimensions,
-    Alert // Imprted Alert
+    Alert
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -28,10 +41,17 @@ export default function AuthScreen({ navigation }: AuthScreenProps) {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    /**
+     * Handles form submission for both login and sign-up flows.
+     * 
+     * TODO: Replace with actual API calls:
+     * - Login: POST /auth/login with email/password
+     * - Sign-up: POST /auth/register with email/password
+     * - Handle errors and show appropriate feedback
+     * - Store auth tokens securely (e.g., using expo-secure-store)
+     */
     const handleContinue = () => {
-        // Simulation Mode:
-        // We bypass strict backend validation to allow exploring the UI
-
+        // Basic validation for demo purposes
         if (!isLogin) {
             if (password !== confirmPassword) {
                 Alert.alert("Password Mismatch", "Please ensure your passwords match.");
@@ -39,8 +59,8 @@ export default function AuthScreen({ navigation }: AuthScreenProps) {
             }
         }
 
-        // Navigate immediately to Onboarding
-        // In a real app, this would happen after API success
+        // Navigate to onboarding after successful auth
+        // In production, wait for API response before navigating
         navigation.navigate('Onboarding');
     };
 

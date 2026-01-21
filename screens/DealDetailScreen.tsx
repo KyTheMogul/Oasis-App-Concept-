@@ -1,3 +1,16 @@
+/**
+ * Detailed view for a specific brand deal / campaign.
+ *
+ * Shows:
+ * - Brand hero banner and logo
+ * - High‑level stats (category, total earnings, progress)
+ * - Milestone roadmap with payment breakdown
+ * - Primary CTA to apply or manage submissions
+ * - Shortcut into the dedicated chat thread with the brand
+ *
+ * The header uses a floating, blurred overlay that fades in as you scroll
+ * to keep navigation controls visible over imagery.
+ */
 import React, { useRef } from 'react';
 import {
     View,
@@ -31,8 +44,12 @@ export default function DealDetailScreen({ route, navigation }: Props) {
         navigation.goBack();
     };
 
+    /**
+     * Entry point into the chat experience for this deal.
+     * In a full implementation, you might look up an existing thread
+     * instead of always creating a new placeholder ID.
+     */
     const handleMessagePress = () => {
-        // In a real app, you'd find an existing thread or create one
         navigation.navigate('Chat', {
             threadId: `new_${deal.id}`, // Placeholder ID
             businessName: deal.businessName,

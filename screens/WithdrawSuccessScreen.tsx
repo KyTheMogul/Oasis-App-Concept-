@@ -1,3 +1,15 @@
+/**
+ * WithdrawSuccessScreen - Confirmation screen after successful withdrawal
+ * 
+ * Features:
+ * - Animated success checkmark icon
+ * - Method-specific confirmation message
+ * - Smooth spring animations for visual feedback
+ * - Returns to Hub screen on completion
+ * 
+ * Design: Modal presentation with centered content and subtle animations
+ * to provide clear feedback that the withdrawal was processed.
+ */
 import React, { useEffect, useRef } from 'react';
 import {
     View,

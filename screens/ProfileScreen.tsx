@@ -1,3 +1,17 @@
+/**
+ * ProfileScreen - Creator profile showcase and social links
+ * 
+ * Displays the creator's profile with:
+ * - Gradient header with profile picture and bio
+ * - Performance stats (followers, views, completed deals)
+ * - Social media links with platform-specific branding
+ * - Quick access to QR code, notifications, and settings
+ * 
+ * Design features:
+ * - Glassmorphism blur effects for stats cards
+ * - Platform-specific icon colors (YouTube red, Instagram pink, etc.)
+ * - Smooth gradient transitions
+ */
 import React, { useState } from 'react';
 import {
     View,

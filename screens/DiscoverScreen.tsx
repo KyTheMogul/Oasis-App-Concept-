@@ -1,3 +1,10 @@
+/**
+ * Discover screen for browsing available brand deals.
+ *
+ * Provides a lightweight search input (UX stub) and horizontal category
+ * filters, then displays deals in a responsive grid. Tapping a card
+ * navigates into `DealDetailScreen` for the full brief and milestones.
+ */
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, Pressable, Image } from 'react-native';
 import { theme } from '../theme';
@@ -7,7 +14,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-// Mock available deals
+// Mock available deals; in production these would come from an API
 const mockAvailableDeals: Deal[] = [
     {
         id: 'd1',
@@ -71,6 +78,7 @@ const mockAvailableDeals: Deal[] = [
     },
 ];
 
+// Simple category filter chips (should align with `Deal.category` values)
 const categories = ['All', 'Fashion', 'Tech', 'Gaming', 'Travel', 'Eco'];
 
 export default function DiscoverScreen() {

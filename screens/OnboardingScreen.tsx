@@ -1,3 +1,15 @@
+/**
+ * Guided multi‑step onboarding flow for new creators.
+ *
+ * Steps are driven by `onboardingSteps` configuration and collect:
+ * - Age (for basic eligibility)
+ * - Primary content type
+ * - Preferred brand categories for deals
+ * - Connected social platforms
+ *
+ * Layout adapts per step: short forms are vertically centered, while
+ * long option lists use a sticky header + scrollable content pattern.
+ */
 import React, { useState, useRef, useEffect } from 'react';
 import {
     View,
@@ -27,7 +39,9 @@ export default function OnboardingScreen({ navigation }: OnboardingScreenProps) 
     const [fadeAnim] = useState(new Animated.Value(1));
     const scrollViewRef = useRef<ScrollView>(null);
 
-    // Step States
+    // ---------------------------------------------------------------------
+    // Step state
+    // ---------------------------------------------------------------------
     const [age, setAge] = useState('');
     const [connectedPlatforms, setConnectedPlatforms] = useState<Set<SocialPlatform>>(new Set());
     const [selectedContentType, setSelectedContentType] = useState<string | null>(null);
@@ -39,11 +53,15 @@ export default function OnboardingScreen({ navigation }: OnboardingScreenProps) 
     // Check if step requires sticky header + scrollable content
     const isScrollableStep = ['content-type', 'brand-preference', 'social-connect'].includes(currentStep.type);
 
-    // Scroll to top when step changes
+    // Scroll to top when step changes to avoid being mid‑scroll on next step
     useEffect(() => {
         scrollViewRef.current?.scrollTo({ y: 0, animated: false });
     }, [currentStepIndex]);
 
+    /**
+     * Advance to the next onboarding step or enter the main app.
+     * Fades content out/in between steps for a smoother transition.
+     */
     const handleNext = () => {
         if (isLastStep) {
             navigation.navigate('MainApp');
@@ -63,6 +81,9 @@ export default function OnboardingScreen({ navigation }: OnboardingScreenProps) 
         }
     };
 
+    /**
+     * Navigate to the previous step with the same fade transition.
+     */
     const handleBack = () => {
         if (currentStepIndex > 0) {
             Animated.timing(fadeAnim, {
@@ -80,6 +101,9 @@ export default function OnboardingScreen({ navigation }: OnboardingScreenProps) 
         }
     };
 
+    /**
+     * Toggle a social platform in the set of connected accounts.
+     */
     const togglePlatform = (platform: SocialPlatform) => {
         const newConnected = new Set(connectedPlatforms);
         if (newConnected.has(platform)) {
@@ -90,6 +114,11 @@ export default function OnboardingScreen({ navigation }: OnboardingScreenProps) 
         setConnectedPlatforms(newConnected);
     };
 
+    /**
+     * Handle selection for content type or brand preference options.
+     * - Content type is single‑select
+     * - Brand preferences support multi‑select with an \"Any\" shortcut
+     */
     const toggleOption = (option: string, isMulti: boolean) => {
         if (currentStep.type === 'content-type') {
             setSelectedContentType(option === selectedContentType ? null : option);
@@ -114,6 +143,10 @@ export default function OnboardingScreen({ navigation }: OnboardingScreenProps) 
         }
     };
 
+    /**
+     * Validation gate for the "Continue" button per step.
+     * Ensures we collect the minimum viable profile before progressing.
+     */
     const canProceed = () => {
         switch (currentStep.type) {
             case 'age':
@@ -130,6 +163,9 @@ export default function OnboardingScreen({ navigation }: OnboardingScreenProps) 
         }
     };
 
+    /**
+     * Render the step‑specific content based on the `type` from config.
+     */
     const renderStepContent = () => {
         switch (currentStep.type) {
             case 'age':

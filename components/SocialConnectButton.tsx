@@ -1,3 +1,15 @@
+/**
+ * SocialConnectButton - Platform-specific social media connection button
+ * 
+ * Features:
+ * - Platform-specific icons and brand colors
+ * - Connected state with checkmark indicator
+ * - Visual feedback on press
+ * - Used in onboarding flow for social account linking
+ * 
+ * Supported platforms: YouTube, TikTok, Instagram, Facebook, Snapchat,
+ * Twitter, LinkedIn, Twitch, Kick
+ */
 import React from 'react';
 import { Pressable, Text, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';

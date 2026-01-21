@@ -1,3 +1,18 @@
+/**
+ * StatementsScreen - Transaction history and earnings statements
+ * 
+ * Displays:
+ * - List of completed transactions with brands
+ * - Transaction IDs, dates, and amounts
+ * - Payment status indicators
+ * - Company/brand names for each transaction
+ * 
+ * TODO: Production features:
+ * - Filter by date range
+ * - Export statements as PDF
+ * - Search functionality
+ * - Pagination for large transaction lists
+ */
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
 import { theme } from '../theme';

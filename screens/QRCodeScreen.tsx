@@ -1,3 +1,21 @@
+/**
+ * QRCodeScreen - QR code display and scanning functionality
+ * 
+ * Dual-mode screen:
+ * 1. Show Mode: Displays creator's profile QR code with blurred background
+ * 2. Scan Mode: Camera view for scanning other QR codes
+ * 
+ * Features:
+ * - Camera permission handling
+ * - Toggle between show/scan modes
+ * - Profile picture blur effect in show mode
+ * - Circular scan frame in scan mode
+ * 
+ * TODO: Production enhancements:
+ * - QR code scanning logic implementation
+ * - Deep linking for scanned codes
+ * - Share QR code functionality
+ */
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
 import { Camera, CameraView, useCameraPermissions } from 'expo-camera';

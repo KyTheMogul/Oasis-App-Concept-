@@ -1,3 +1,16 @@
+/**
+ * DealDetailModal - Full-screen modal for detailed deal information
+ * 
+ * Features:
+ * - Company banner and logo display
+ * - Deal roadmap with milestone timeline
+ * - Progress tracking visualization
+ * - Apply/View actions based on deal status
+ * - Scrollable content with fixed footer
+ * 
+ * Note: This component is similar to DealDetailScreen but presented as a modal.
+ * Consider consolidating if both are needed in production.
+ */
 import React from 'react';
 import {
     View,

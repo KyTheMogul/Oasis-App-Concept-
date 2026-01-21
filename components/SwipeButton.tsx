@@ -1,3 +1,18 @@
+/**
+ * SwipeButton - Interactive swipe-to-confirm button component
+ * 
+ * Features:
+ * - Swipe gesture to confirm high-intent actions
+ * - Haptic feedback at intervals during swipe
+ * - Animated fill effect as user swipes
+ * - Success animation on completion
+ * - Customizable text label
+ * 
+ * Used in: GetStartedScreen for initial app entry
+ * 
+ * Design: Provides a premium, engaging interaction pattern
+ * that reduces accidental taps while maintaining accessibility.
+ */
 import React, { useState, useRef } from 'react';
 import { View, StyleSheet, Animated, PanResponder, Dimensions, LayoutChangeEvent } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';

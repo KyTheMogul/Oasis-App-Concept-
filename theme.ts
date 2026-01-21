@@ -1,3 +1,17 @@
+/**
+ * Global design system for the Oasis app.
+ *
+ * This file centralizes semantic tokens for:
+ * - Colors (backgrounds, text, status, glassmorphism)
+ * - Spacing scale
+ * - Border radius scale
+ * - Typography presets
+ * - Shadow presets
+ * - Animation timings
+ *
+ * Keeping these values in one place makes it easy to rebrand or tweak
+ * the visual language of the entire app without hunting through screens.
+ */
 import { TextStyle } from 'react-native';
 
 type FontWeight = TextStyle['fontWeight'];
@@ -32,6 +46,7 @@ export const theme = {
     overlay: 'rgba(0, 0, 0, 0.7)',
   },
 
+  // 4‑point spacing scale used throughout layout
   spacing: {
     xs: 4,
     sm: 8,
@@ -41,6 +56,7 @@ export const theme = {
     xxl: 48,
   },
 
+  // Radius scale for corners; use semantic names instead of raw numbers
   borderRadius: {
     sm: 8,
     md: 12,
@@ -49,6 +65,7 @@ export const theme = {
     full: 9999,
   },
 
+  // Reusable text styles for consistent typography
   typography: {
     h1: {
       fontSize: 32,
@@ -87,6 +104,7 @@ export const theme = {
     },
   },
 
+  // Shadow presets for iOS/Android (RN) elevation
   shadows: {
     small: {
       shadowColor: '#000',
@@ -111,6 +129,7 @@ export const theme = {
     },
   },
 
+  // Shared animation durations (ms) for subtle, consistent motion
   animation: {
     fast: 150,
     normal: 300,
@@ -118,4 +137,5 @@ export const theme = {
   },
 };
 
+// Convenience type to infer the shape of the theme in consuming code
 export type Theme = typeof theme;

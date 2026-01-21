@@ -1,3 +1,13 @@
+/**
+ * Root application entry for the Oasis creator–brand deal marketplace.
+ *
+ * This file wires up:
+ * - The root stack navigator for onboarding, auth, legal, and modal flows
+ * - The bottom tab navigator for the authenticated main app experience
+ * - The global grain overlay that sits visually above the entire app
+ *
+ * Navigation types are centralized in `types.ts` to keep routes type‑safe.
+ */
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -8,14 +18,14 @@ import { theme } from './theme';
 import { RootStackParamList, MainTabParamList } from './types';
 import GrainOverlay from './components/GrainOverlay';
 
-// Auth Screens
+// Auth & onboarding screens
 import GetStartedScreen from './screens/GetStartedScreen';
 import AuthScreen from './screens/AuthScreen';
 import TermsScreen from './screens/TermsScreen';
 import PrivacyScreen from './screens/PrivacyScreen';
 import OnboardingScreen from './screens/OnboardingScreen';
 
-// Main App Screens
+// Main app (authenticated) screens
 import HubScreen from './screens/HubScreen';
 import DiscoverScreen from './screens/DiscoverScreen';
 import MessagesScreen from './screens/MessagesScreen';
@@ -28,9 +38,14 @@ import WithdrawScreen from './screens/WithdrawScreen';
 import WithdrawSuccessScreen from './screens/WithdrawSuccessScreen';
 import ChatScreen from './screens/ChatScreen';
 
+// Centralized navigators typed with our shared navigation param lists
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
+/**
+ * Bottom tab navigator that powers the primary creator experience:
+ * Hub (dashboard), Discover (browse deals), Messages, and Profile.
+ */
 function MainTabNavigator() {
   return (
     <Tab.Navigator
@@ -41,7 +56,7 @@ function MainTabNavigator() {
           borderTopColor: 'transparent',
           borderTopWidth: 0,
           paddingTop: 8,
-          // Removed fixed height and bottom padding to allow Safe Area to handle it correctly
+          // Let the device safe‑area handle bottom insets instead of hard‑coding height
         },
         tabBarActiveTintColor: theme.colors.primary,
         tabBarInactiveTintColor: theme.colors.textTertiary,
@@ -91,9 +106,16 @@ function MainTabNavigator() {
   );
 }
 
+/**
+ * Top‑level application component.
+ *
+ * Wraps the stack navigator in a `NavigationContainer` and places a global
+ * animated grain overlay above all content for a consistent visual texture.
+ */
 export default function App() {
   return (
     <View style={styles.container}>
+      {/* Main navigation tree */}
       <View style={{ flex: 1, zIndex: 1 }}>
         <NavigationContainer>
           <Stack.Navigator
@@ -102,11 +124,14 @@ export default function App() {
               contentStyle: { backgroundColor: theme.colors.background },
             }}
           >
+            {/* Public / pre‑auth flows */}
             <Stack.Screen name="GetStarted" component={GetStartedScreen} />
             <Stack.Screen name="Auth" component={AuthScreen} />
             <Stack.Screen name="Terms" component={TermsScreen} />
             <Stack.Screen name="Privacy" component={PrivacyScreen} />
             <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+
+            {/* Main app and auxiliary screens */}
             <Stack.Screen name="Settings" component={SettingsScreen} />
             <Stack.Screen name="Statements" component={StatementsScreen} />
             <Stack.Screen name="QRCode" component={QRCodeScreen} options={{ headerShown: false }} />
@@ -119,6 +144,7 @@ export default function App() {
                 gestureDirection: 'vertical',
               }}
             />
+            {/* Root for the tabbed creator experience */}
             <Stack.Screen name="MainApp" component={MainTabNavigator} />
             <Stack.Screen
               name="Withdraw"

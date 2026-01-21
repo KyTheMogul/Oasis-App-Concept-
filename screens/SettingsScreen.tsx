@@ -1,8 +1,21 @@
+/**
+ * SettingsScreen - App settings and account management
+ * 
+ * Features:
+ * - Navigation to profile, statements, security, and preferences
+ * - Logout functionality with navigation reset
+ * - Clean list-based UI with icons
+ * 
+ * TODO: Add actual settings functionality:
+ * - Notification preferences
+ * - Privacy controls
+ * - Account deletion
+ * - Two-factor authentication
+ */
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Pressable, Switch } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
 import { theme } from '../theme';
 import { Ionicons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 

@@ -1,3 +1,19 @@
+/**
+ * WithdrawScreen - Creator earnings withdrawal interface
+ * 
+ * Features:
+ * - Available balance display
+ * - Custom amount input with currency formatting
+ * - Payment method selection (PayPal Instant, Bank Transfer)
+ * - Auto-withdraw toggle for monthly automation
+ * - Validation to ensure amount doesn't exceed balance
+ * 
+ * TODO: Production integration:
+ * - Connect to payment processing API (Stripe, PayPal SDK)
+ * - Add bank account linking flow
+ * - Implement transaction history
+ * - Add withdrawal limits and verification
+ */
 import React, { useState } from 'react';
 import {
     View,

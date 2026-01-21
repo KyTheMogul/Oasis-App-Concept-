@@ -1,3 +1,14 @@
+/**
+ * Static configuration for the creator onboarding flow.
+ *
+ * Each step describes:
+ * - The type of question (age, content type, brand preferences, social connect)
+ * - The copy shown to the user
+ * - Any selection options and validation rules
+ *
+ * This config is consumed by `OnboardingScreen` to render a guided, multi‑step
+ * experience without hard‑coding copy or options in the UI layer.
+ */
 import { OnboardingStep } from './types';
 
 export const onboardingSteps: OnboardingStep[] = [

@@ -1,3 +1,18 @@
+/**
+ * GrainOverlay - Animated film grain texture overlay component
+ * 
+ * Creates a subtle, animated grain effect using SVG patterns.
+ * Used globally in App.tsx to add depth and premium feel to the UI.
+ * 
+ * Features:
+ * - Multiple noise layers (12) for non-repetitive animation
+ * - Random layer cycling for organic movement
+ * - Configurable opacity, density, and animation speed
+ * - Performance optimized with useMemo and native animations
+ * 
+ * Design: Adds subtle texture without being distracting, enhancing
+ * the premium dark theme aesthetic.
+ */
 import React, { useEffect, useRef, useMemo } from 'react';
 import { View, StyleSheet, Animated, Dimensions } from 'react-native';
 import Svg, { Rect, Defs, Pattern } from 'react-native-svg';
